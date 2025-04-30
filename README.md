@@ -198,7 +198,7 @@ BugTicketingSystem/
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/BugTicketingSystem.git
+   git clone https://github.com/mohamedAbdelwahabali5/BugTicketingSystem.git
    ```
 
 2. Navigate to the project directory:
@@ -218,7 +218,7 @@ BugTicketingSystem/
    dotnet run
    ```
 
-6. Access the API at `https://localhost:5001` or `http://localhost:5000`
+6. Access the API at `https://localhost:5050` or `http://localhost:5000`
 
 ## Initial Data
 
@@ -275,6 +275,6 @@ Contributions are welcome! Please follow these steps:
 
 ## Contact
 
-Project Maintainer - [your-email@example.com](mailto:Mohamedabdelwahabali5@gmail.com)
+Project Developer - [mohamedabdelwahabali5@gmail.com](mailto:mohamedAbdelwahabali5@gmail.com)
 
-Project Link: [https://github.com/yourusername/BugTicketingSystem](https://github.com/mohamedabdelwahab5/BugTicketingSystem)
+Project Link: [https://github.com/mohamedAbdelwahabali5/BugTicketingSystem](https://github.com/mohamedAbdelwahabali5/BugTicketingSystem)
