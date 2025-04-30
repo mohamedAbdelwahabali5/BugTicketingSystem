@@ -112,14 +112,14 @@ namespace BusnissLayer.Managers
             }
         }
 
-        public async Task<GeneralResult<TokenDto>> RegisterUser(UserRegDto userDto)
+        public async Task<GeneralResult<UserRegDto>> RegisterUser(UserRegDto userDto)
         {
             try
             {
                 var existingUser = await _unitOfWork.UserRepository.GetByEmailAsync(userDto.Email);
                 if (existingUser != null)
                 {
-                    return new GeneralResult<TokenDto>
+                    return new GeneralResult<UserRegDto>
                     {
                         IsValid = false,
                         Errors = [new ResultError { Code = "USER_EXISTS", Message = "User already exists" }]
@@ -138,24 +138,24 @@ namespace BusnissLayer.Managers
                 await _unitOfWork.UserRepository.Add(user);
                 await _unitOfWork.SaveChangesAsync();
 
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(ClaimTypes.Role, "User")
-                };
+                //var claims = new List<Claim>
+                //{
+                //    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                //    new Claim(ClaimTypes.Email, user.Email),
+                //    new Claim(ClaimTypes.Name, user.UserName),
+                //    new Claim(ClaimTypes.Role, "User")
+                //};
 
-                var token = GenerateToken(claims);
-                return new GeneralResult<TokenDto>
+                //var token = GenerateToken(claims);
+                return new GeneralResult<UserRegDto>
                 {
                     IsValid = true,
-                    Data = token
+                    Data = userDto
                 };
             }
             catch (Exception ex)
             {
-                return new GeneralResult<TokenDto>
+                return new GeneralResult<UserRegDto>
                 {
                     IsValid = false,
                     Errors = [new ResultError { Code = "REGISTRATION_ERROR", Message = ex.Message }]
