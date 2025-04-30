@@ -101,7 +101,7 @@ namespace DataAccessLayer.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("ProjectId")
+                    b.Property<int?>("ProjectId")
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
@@ -282,7 +282,7 @@ namespace DataAccessLayer.Migrations
                             Id = 1,
                             CreatedAt = new DateTime(2023, 1, 1, 2, 0, 0, 0, DateTimeKind.Local),
                             Email = "manager@bugtracker.com",
-                            Password = "$2a$11$qw6p..mm8pBk8k7DpN/DOuG9eBG6tbnHTC50nqXxHkv2ydSvGMj3.",
+                            Password = "$2a$11$nEXdjPiYo90l288LE8UiNO1p5zq6iMhJ/Hri6bHc6D9JOpX756m.e",
                             UserName = "manager"
                         },
                         new
@@ -290,7 +290,7 @@ namespace DataAccessLayer.Migrations
                             Id = 2,
                             CreatedAt = new DateTime(2023, 1, 1, 2, 0, 0, 0, DateTimeKind.Local),
                             Email = "dev1@bugtracker.com",
-                            Password = "$2a$11$ogZGTB5nSkJhWbn2QnymcuAZfGy9tkDtMG0QA9/qxZCcL35tJ7Tq2",
+                            Password = "$2a$11$odp7SPzQRHmlN3s8FBbE2uHzmSt8PmZcMDeWnQ4r8xD8lm4sxsxS.",
                             ProjectId = 1,
                             UserName = "dev1"
                         },
@@ -299,7 +299,7 @@ namespace DataAccessLayer.Migrations
                             Id = 3,
                             CreatedAt = new DateTime(2023, 1, 1, 2, 0, 0, 0, DateTimeKind.Local),
                             Email = "dev2@bugtracker.com",
-                            Password = "$2a$11$jABCB9CVIcBEqFmMC7/LJ.T6JZ92g4hTtHnN5YJNmFke3ydbAeni.",
+                            Password = "$2a$11$6/rb6EH.ktag8vRxWZ2DYOqs4Qg2t6LjrHCWTMshdN1v24NqkmWji",
                             ProjectId = 2,
                             UserName = "dev2"
                         },
@@ -308,7 +308,7 @@ namespace DataAccessLayer.Migrations
                             Id = 4,
                             CreatedAt = new DateTime(2023, 1, 1, 2, 0, 0, 0, DateTimeKind.Local),
                             Email = "tester1@bugtracker.com",
-                            Password = "$2a$11$UswlF9BEmbNiyyO4AVzjGuNJqTjCU95B/7aY0Eo6bo468iYUvkDI.",
+                            Password = "$2a$11$4f5n44bA9qPicvkUqe8DhuyFN6r63aVKnKX1PPF8jH0W722Qf2PBq",
                             ProjectId = 1,
                             UserName = "tester1"
                         });
@@ -399,8 +399,7 @@ namespace DataAccessLayer.Migrations
                     b.HasOne("DataAccessLayer.Models.Project", "Project")
                         .WithMany("Bugs")
                         .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Project");
                 });

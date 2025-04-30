@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SchoolApp.DAL.Repositories.Genaric;
 
-namespace SchoolApp.DAL.Repositories
+namespace DataAccessLayer.Repositories
 {
     public interface IUserBugRepository
     {

@@ -1,13 +1,12 @@
 ﻿
 using DataAccessLayer.Repositories;
-using SchoolApp.DAL.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SchoolApp.DAL.UnitOfWork
+namespace DataAccessLayer
 {
     public interface IUnitOfWork
     {
@@ -16,6 +15,8 @@ namespace SchoolApp.DAL.UnitOfWork
         public IBugRepository BugRepository { get; }
         public IProjectRepository ProjectRepository { get; }
         public IAttachmentRepository AttachmentRepository { get; }
+
+        public IUserBugRepository User_BugRepository { get; }
 
         Task<int> SaveChangesAsync();
     }

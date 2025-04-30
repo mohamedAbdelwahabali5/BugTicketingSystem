@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using DataAccessLayer.Models;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-
+using Microsoft.EntityFrameworkCore.Proxies;
 namespace DataAccessLayer.Context
 {
     public class BTSDbContext : DbContext
@@ -14,6 +14,8 @@ namespace DataAccessLayer.Context
         {
             optionsBuilder.ConfigureWarnings(warnings =>
                 warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
+
+            //optionsBuilder.UseLazyLoadingProxies();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

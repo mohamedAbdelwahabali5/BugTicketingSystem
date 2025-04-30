@@ -13,7 +13,7 @@ namespace DataAccessLayer.Models
         public required string Email { get; set; }
         public required string Password { get; set; }
         //public required string Role { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         // relations with entities
         public int? ProjectId { get; set; }

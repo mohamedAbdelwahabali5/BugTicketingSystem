@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using DataAccessLayer.Context;
 using DataAccessLayer.Models;
 using Microsoft.EntityFrameworkCore;
-using SchoolApp.DAL.Repositories.Genaric;
+
+
 namespace DataAccessLayer.Repositories
 {
     public class AttachmentRepository : GeneraicRepository<Attachment>, IAttachmentRepository

@@ -1,15 +1,14 @@
-﻿using BusnissLayer.DTOs;
-using System;
+﻿using BusnissLayer.DTOs.UserDtos;
+using SchoolApp.BL.Dtos.Common;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BusnissLayer.Managers
 {
     public interface IUserManager
     {
-        Task<bool> RegisterUser(UserRegDto userDto);
-        Task<bool> LoginUser(UserLogDto userLogDto);
+        Task<GeneralResult<ICollection<UserDto>>> GetAllUsers();
+        Task<GeneralResult<TokenDto>> RegisterUser(UserRegDto userDto);
+        Task<GeneralResult<TokenDto>> LoginUser(UserLogDto userLogDto);
     }
 }

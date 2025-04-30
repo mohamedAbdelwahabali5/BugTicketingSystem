@@ -21,7 +21,7 @@ namespace DataAccessLayer.Models
         // relations with entities
         public ICollection<User_Bug>? User_Bugs { get; set; }
         public ICollection<Attachment>? Attachments { get; set; } 
-        public int ProjectId { get; set; }
+        public int? ProjectId { get; set; }
         public Project? Project { get; set; }
 
     }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DataAccessLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class Test : Migration
+    public partial class TestV01 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -55,7 +55,7 @@ namespace DataAccessLayer.Migrations
                     Status = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Priority = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETUTCDATE()"),
-                    ProjectId = table.Column<int>(type: "int", nullable: false)
+                    ProjectId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -162,7 +162,7 @@ namespace DataAccessLayer.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreatedAt", "Email", "Password", "ProjectId", "UserName" },
-                values: new object[] { 1, new DateTime(2023, 1, 1, 2, 0, 0, 0, DateTimeKind.Local), "manager@bugtracker.com", "$2a$11$qw6p..mm8pBk8k7DpN/DOuG9eBG6tbnHTC50nqXxHkv2ydSvGMj3.", null, "manager" });
+                values: new object[] { 1, new DateTime(2023, 1, 1, 2, 0, 0, 0, DateTimeKind.Local), "manager@bugtracker.com", "$2a$11$nEXdjPiYo90l288LE8UiNO1p5zq6iMhJ/Hri6bHc6D9JOpX756m.e", null, "manager" });
 
             migrationBuilder.InsertData(
                 table: "Projects",
@@ -193,9 +193,9 @@ namespace DataAccessLayer.Migrations
                 columns: new[] { "Id", "CreatedAt", "Email", "Password", "ProjectId", "UserName" },
                 values: new object[,]
                 {
-                    { 2, new DateTime(2023, 1, 1, 2, 0, 0, 0, DateTimeKind.Local), "dev1@bugtracker.com", "$2a$11$ogZGTB5nSkJhWbn2QnymcuAZfGy9tkDtMG0QA9/qxZCcL35tJ7Tq2", 1, "dev1" },
-                    { 3, new DateTime(2023, 1, 1, 2, 0, 0, 0, DateTimeKind.Local), "dev2@bugtracker.com", "$2a$11$jABCB9CVIcBEqFmMC7/LJ.T6JZ92g4hTtHnN5YJNmFke3ydbAeni.", 2, "dev2" },
-                    { 4, new DateTime(2023, 1, 1, 2, 0, 0, 0, DateTimeKind.Local), "tester1@bugtracker.com", "$2a$11$UswlF9BEmbNiyyO4AVzjGuNJqTjCU95B/7aY0Eo6bo468iYUvkDI.", 1, "tester1" }
+                    { 2, new DateTime(2023, 1, 1, 2, 0, 0, 0, DateTimeKind.Local), "dev1@bugtracker.com", "$2a$11$odp7SPzQRHmlN3s8FBbE2uHzmSt8PmZcMDeWnQ4r8xD8lm4sxsxS.", 1, "dev1" },
+                    { 3, new DateTime(2023, 1, 1, 2, 0, 0, 0, DateTimeKind.Local), "dev2@bugtracker.com", "$2a$11$6/rb6EH.ktag8vRxWZ2DYOqs4Qg2t6LjrHCWTMshdN1v24NqkmWji", 2, "dev2" },
+                    { 4, new DateTime(2023, 1, 1, 2, 0, 0, 0, DateTimeKind.Local), "tester1@bugtracker.com", "$2a$11$4f5n44bA9qPicvkUqe8DhuyFN6r63aVKnKX1PPF8jH0W722Qf2PBq", 1, "tester1" }
                 });
 
             migrationBuilder.InsertData(

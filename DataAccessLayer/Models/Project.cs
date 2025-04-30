@@ -12,7 +12,7 @@ namespace DataAccessLayer.Models
         public int Id { get; set; }
         public required string Name { get; set; }
         public string? Description { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         // relations with entities    
         public int? ManagerId { get; set; }

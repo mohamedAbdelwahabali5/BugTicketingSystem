@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using DataAccessLayer.Context;
 using DataAccessLayer.Repositories;
-using SchoolApp.DAL.Repositories;
-namespace SchoolApp.DAL.UnitOfWork
+
+
+namespace DataAccessLayer
 {
     public class UnitOfWork : IUnitOfWork
     {
@@ -19,6 +19,7 @@ namespace SchoolApp.DAL.UnitOfWork
         public IBugRepository BugRepository { get; }
         public IProjectRepository ProjectRepository { get; }
         public IAttachmentRepository AttachmentRepository { get; }
+        public IUserBugRepository User_BugRepository { get; }
 
         public UnitOfWork(
             IUserBugRepository userBugRepo,
@@ -26,6 +27,7 @@ namespace SchoolApp.DAL.UnitOfWork
             IBugRepository bugRepo,
             IProjectRepository projectRepo,
             IAttachmentRepository attachmentRepo,
+            IUserBugRepository user_BugRepo,
 
             BTSDbContext context)
         {
@@ -34,6 +36,7 @@ namespace SchoolApp.DAL.UnitOfWork
             BugRepository = bugRepo;
             ProjectRepository = projectRepo;
             AttachmentRepository = attachmentRepo;
+            User_BugRepository = user_BugRepo;
 
             _context = context;
         }

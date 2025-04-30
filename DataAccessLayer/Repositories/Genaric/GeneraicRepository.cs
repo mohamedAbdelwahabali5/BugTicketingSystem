@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using DataAccessLayer.Context;
+using System.Linq.Expressions;
 
-namespace SchoolApp.DAL.Repositories.Genaric
+namespace DataAccessLayer.Repositories
 {
     public class GeneraicRepository<T> : IGenaricRepository<T> where T : class
     {
@@ -28,19 +29,36 @@ namespace SchoolApp.DAL.Repositories.Genaric
             _context.Set<T>()
                 .Remove(entity);
         }
-
-        public async Task<List<T>> GetAllAsync()
+        public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
         {
-            return await _context.Set<T>()
-                .AsNoTracking()
-                .ToListAsync();
+            return await _context.Set<T>().AnyAsync(predicate);
+        }
+        public async Task<IEnumerable<T>> GetAllAsync(params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = _context.Set<T>();
+
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return await query.AsNoTracking().ToListAsync();
         }
 
-        public async Task<T?> GetByIdAsync(int id)
+        public async Task<T?> GetByIdAsync(
+                 Expression<Func<T, bool>> predicate,   
+                 params Expression<Func<T, object>>[] includes)
         {
-            return await _context.Set<T>()
-                .FindAsync(id);
+            IQueryable<T> query = _context.Set<T>();
+
+            foreach (var include in includes)
+            {
+                query = query.Include(include);
+            }
+
+            return await query.AsNoTracking().FirstOrDefaultAsync(predicate);
         }
+
 
         public async Task<int> SaveChangesAsync()
         {

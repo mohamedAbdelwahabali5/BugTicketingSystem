@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusnissLayer.DTOs
+namespace BusnissLayer.DTOs.UserDtos
 {
-    public class UserRegDto
+    public class UserLogDto
     {
-        public required string UserName { get; set; }
         public required string Email { get; set; }
         public required string Password { get; set; }
     }

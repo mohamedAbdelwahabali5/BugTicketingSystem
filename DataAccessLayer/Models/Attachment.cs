@@ -13,7 +13,7 @@ namespace DataAccessLayer.Models
         public required string FileType { get; set; }
         public string? ContentType { get; set; }
         public required string FilePath { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         // relationship
         public int BugId { get; set; }
