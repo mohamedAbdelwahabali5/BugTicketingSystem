@@ -150,7 +150,12 @@ namespace BusnissLayer.Managers
                 return new GeneralResult<UserRegDto>
                 {
                     IsValid = true,
-                    Data = userDto
+                    Data = new UserRegDto
+                    {
+                        UserName = user.UserName,
+                        Email = user.Email,
+                        Password = user.Password
+                    }
                 };
             }
             catch (Exception ex)
