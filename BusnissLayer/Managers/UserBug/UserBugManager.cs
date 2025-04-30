@@ -19,7 +19,6 @@ namespace BusnissLayer.Managers
         {
             try
             {
-                // التحقق من وجود العلاقة مسبقاً
                 var existingAssignment = await _unitOfWork.UserBugRepository
                     .GetByIdAsync(userId, bugId);
 

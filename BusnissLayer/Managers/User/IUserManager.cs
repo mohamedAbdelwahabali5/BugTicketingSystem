@@ -8,7 +8,7 @@ namespace BusnissLayer.Managers
     public interface IUserManager
     {
         Task<GeneralResult<ICollection<UserDto>>> GetAllUsers();
-        Task<GeneralResult<TokenDto>> RegisterUser(UserRegDto userDto);
+        Task<GeneralResult<UserRegDto>> RegisterUser(UserRegDto userDto);
         Task<GeneralResult<TokenDto>> LoginUser(UserLogDto userLogDto);
     }
 }
